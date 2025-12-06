@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Portal das Histórias e Escolhas — Projeto Aurora</title>
+  <title>Portal Aurora - Histórias, Escolhas e Dimensões</title>
 
-  <!-- LINK DO CSS SEPARADO -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header class="hero">
-  <h1>Portal das Histórias e Escolhas — Projeto Aurora</h1>
-  <p>Um site interativo que mistura GIFs misteriosos com decisões que mudam finais.</p>
-  <nav class="topnav" aria-label="Navegação principal">
+  <h1>Portal Aurora</h1>
+  <p>Um mundo interativo criado a partir das imagens que você enviou ✨</p>
+
+  <nav class="topnav">
     <button data-target="panel-home" class="active">Início</button>
     <button data-target="panel-story">História</button>
     <button data-target="panel-choices">Escolhas</button>
@@ -23,97 +23,125 @@
 </header>
 
 <main>
-  <!-- PANEL: HOME -->
-  <section id="panel-home" class="panel active">
+
+  <!-- HOME -->
+  <section id="panel-home" class="panel active fade">
     <div class="intro">
-      <h2>Bem-vindo(a) ao Projeto Aurora</h2>
-      <p>Você me mandou as imagens — eu juntei elas numa aventura. Cada escolha leva a um caminho diferente. Bora começar?</p>
+      <h2>BEM-VINDO AO PORTAL AURORA</h2>
+      <p>Clique abaixo para explorar as seções e ver como suas imagens viraram um universo inteiro.</p>
+
       <div class="cta-row">
-        <button id="startStoryBtn" class="btn">Começar a História</button>
+        <button id="startStoryBtn" class="btn">Começar História</button>
         <button id="openChoicesBtn" class="btn ghost">Ir para Escolhas</button>
         <button id="openQuizBtn" class="btn ghost">Abrir Quiz</button>
       </div>
-      <img src="f00c2b84-62cd-46f3-bf31-e080d5eaf3a6.gif" alt="capa" />
-      <p class="small">(As imagens devem estar na mesma pasta deste index.)</p>
+
+      <img src="f00c2b84-62cd-46f3-bf31-e080d5eaf3a6.gif" alt="Portal inicial" class="home-img">
     </div>
   </section>
 
-  <!-- PANEL: STORY -->
-  <section id="panel-story" class="panel">
+  <!-- HISTÓRIA -->
+  <section id="panel-story" class="panel fade">
     <div class="story-wrap">
-      <div class="story-card">
-        <div class="scene">
-          <h3 class="scene-title" id="sceneTitle">Carregando...</h3>
-          <img id="sceneImage" class="scene-image" src="" alt="Cena">
-          <p id="sceneText" style="margin-top:10px"></p>
-          <div id="sceneChoices" class="choices" aria-live="polite"></div>
 
-          <div class="controls" style="margin-top:10px">
-            <button id="saveProgress" class="btn ghost">Salvar Progresso</button>
-            <button id="restartStory" class="btn ghost">Reiniciar História</button>
-          </div>
+      <div class="story-card pop">
+        <h3 id="sceneTitle" class="scene-title">Carregando...</h3>
+        <img id="sceneImage" class="scene-image" src="">
+        <p id="sceneText" class="scene-text"></p>
+        <div id="sceneChoices" class="choices"></div>
+
+        <div class="controls story-ctrl">
+          <button id="saveProgress" class="btn ghost small">Salvar progresso</button>
+          <button id="restartStory" class="btn ghost small">Reiniciar</button>
         </div>
       </div>
 
-      <aside class="side">
+      <aside class="side fade">
         <div class="card">
-          <h4 style="margin:0 0 8px 0;color:var(--accent2)">Memórias Desbloqueadas</h4>
-          <div id="memories" class="mems" aria-live="polite"></div>
-          <p class="small">Toque nas memórias para ler.</p>
+          <h4>Memórias desbloqueadas</h4>
+          <div id="memories" class="mems"></div>
         </div>
 
-        <div class="card" style="margin-top:12px;text-align:center">
-          <strong>Tema</strong>
-          <div class="controls">
-            <button id="themeBtn" class="pill">Trocar Tema</button>
-            <button id="confettiBtn" class="pill">Confete</button>
-            <button id="resetBtn" class="pill">Resetar</button>
-          </div>
+        <div class="card">
+          <h4>Tema</h4>
+          <button id="themeBtn" class="pill">Trocar tema</button>
         </div>
       </aside>
+
     </div>
   </section>
 
-  <!-- PANEL: CHOICES -->
-  <section id="panel-choices" class="panel">
-    <div class="card">
-      <h2 style="color:var(--accent)">Escolha seu destino</h2>
-      <p>Cada botão leva a um final ilustrado.</p>
+  <!-- ESCOLHAS -->
+  <section id="panel-choices" class="panel fade">
+    <div class="card pop">
+      <h2>Escolha seu Destino</h2>
+      <p>Cada botão leva a um final diferente.</p>
 
       <div class="controls">
-        <button class="choiceBtn btn" data-target="final-lua">Seguir a luz da lua</button>
-        <button class="choiceBtn btn" data-target="final-floresta">Entrar na floresta colorida</button>
-        <button class="choiceBtn btn" data-target="final-agua">Tocar a superfície da água</button>
+        <button class="choiceBtn btn" data-target="final-lua">Seguir a lua</button>
+        <button class="choiceBtn btn" data-target="final-floresta">Entrar na floresta</button>
+        <button class="choiceBtn btn" data-target="final-agua">Tocar a água</button>
       </div>
 
       <div id="finalsContainer">
-        <div id="final-lua" class="final hidden">
-          <h3>Final — Lua</h3>
+        <div id="final-lua" class="final hidden fade">
+          <h3>Final – Lua</h3>
           <img src="98025fe2-5897-41b3-a904-edf49d89c7c8.gif">
-          <p>Uma ponte de luz se abre e te leva para um caminho sereno.</p>
+          <p>A luz suave te guia para outro plano.</p>
         </div>
 
-        <div id="final-floresta" class="final hidden">
-          <h3>Final — Floresta</h3>
+        <div id="final-floresta" class="final hidden fade">
+          <h3>Final – Floresta</h3>
           <img src="56023d4c-7e3c-4970-8850-2a378071d394.gif">
-          <p>As árvores te guiam até algo maravilhoso.</p>
+          <p>As cores vivas revelam segredos antigos.</p>
         </div>
 
-        <div id="final-agua" class="final hidden">
-          <h3>Final — Água</h3>
+        <div id="final-agua" class="final hidden fade">
+          <h3>Final – Água</h3>
           <img src="22b8abed-7d88-4dba-88c0-a67e720360a0.gif">
-          <p>Ao tocar a água, reflexos revelam uma nova história.</p>
+          <p>A água reflete dimensões desconhecidas.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PANEL: QUIZ -->
-  <section id="panel-quiz" class="panel">
-    <div class="card">
-      <h2 style="color:var(--accent2)">Quiz das Dimensões</h2>
+  <!-- QUIZ -->
+  <section id="panel-quiz" class="panel fade">
+    <div class="card pop">
+      <h2>Quiz das Dimensões</h2>
 
-      <p><strong>1)</strong> Escolha um elemento:</p>
-      <div class="quiz-options"
-tml>
+      <p>Escolha um elemento:</p>
+
+      <div class="quiz-options">
+        <button class="q-btn pill" data-result="luz">Luz brilhante</button>
+        <button class="q-btn pill" data-result="sombras">Sombras misteriosas</button>
+        <button class="q-btn pill" data-result="caos">Caos colorido</button>
+      </div>
+
+      <div id="quiz-result" class="quiz-result hidden pop"></div>
+    </div>
+  </section>
+
+  <!-- EXTRAS -->
+  <section id="panel-extras" class="panel fade">
+    <div class="card pop">
+      <h2>Extras</h2>
+
+      <button id="openAllMemBtn" class="pill">Ver todas memórias</button>
+
+      <img src="d3739ffb-2082-44d1-bbac-59e728846772.gif" class="extra-img">
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>Portal Aurora ✨</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
+
 
