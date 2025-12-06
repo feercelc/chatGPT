@@ -1,40 +1,119 @@
-<!DOCTYPE html>
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portal das Histórias e Escolhas — Projeto Aurora</title>
 
+  <!-- LINK DO CSS SEPARADO -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-<div class="choice-grid">
-<button class="choice" data-target="final-lua">Seguir a luz da lua</button>
-<button class="choice" data-target="final-floresta">Entrar na floresta colorida</button>
-<button class="choice" data-target="final-agua">Tocar a superfície da água</button>
-</div>
+<header class="hero">
+  <h1>Portal das Histórias e Escolhas — Projeto Aurora</h1>
+  <p>Um site interativo que mistura GIFs misteriosos com decisões que mudam finais.</p>
+  <nav class="topnav" aria-label="Navegação principal">
+    <button data-target="panel-home" class="active">Início</button>
+    <button data-target="panel-story">História</button>
+    <button data-target="panel-choices">Escolhas</button>
+    <button data-target="panel-quiz">Quiz</button>
+    <button data-target="panel-extras">Extras</button>
+  </nav>
+</header>
 
+<main>
+  <!-- PANEL: HOME -->
+  <section id="panel-home" class="panel active">
+    <div class="intro">
+      <h2>Bem-vindo(a) ao Projeto Aurora</h2>
+      <p>Você me mandou as imagens — eu juntei elas numa aventura. Cada escolha leva a um caminho diferente. Bora começar?</p>
+      <div class="cta-row">
+        <button id="startStoryBtn" class="btn">Começar a História</button>
+        <button id="openChoicesBtn" class="btn ghost">Ir para Escolhas</button>
+        <button id="openQuizBtn" class="btn ghost">Abrir Quiz</button>
+      </div>
+      <img src="f00c2b84-62cd-46f3-bf31-e080d5eaf3a6.gif" alt="capa" />
+      <p class="small">(As imagens devem estar na mesma pasta deste index.)</p>
+    </div>
+  </section>
 
-<div id="final-lua" class="final hidden">
-<h3>Final da Lua</h3>
-<img src="98025fe2-5897-41b3-a904-edf49d89c7c8.gif" />
-<p>A lua revelou um portal silencioso que só abre para os mais curiosos.</p>
-</div>
+  <!-- PANEL: STORY -->
+  <section id="panel-story" class="panel">
+    <div class="story-wrap">
+      <div class="story-card">
+        <div class="scene">
+          <h3 class="scene-title" id="sceneTitle">Carregando...</h3>
+          <img id="sceneImage" class="scene-image" src="" alt="Cena">
+          <p id="sceneText" style="margin-top:10px"></p>
+          <div id="sceneChoices" class="choices" aria-live="polite"></div>
 
+          <div class="controls" style="margin-top:10px">
+            <button id="saveProgress" class="btn ghost">Salvar Progresso</button>
+            <button id="restartStory" class="btn ghost">Reiniciar História</button>
+          </div>
+        </div>
+      </div>
 
-<div id="final-floresta" class="final hidden">
-<h3>Final da Floresta</h3>
-<img src="56023d4c-7e3c-4970-8850-2a378071d394.gif" />
-<p>A floresta ganha vida, guiando você para um caminho desconhecido.</p>
-</div>
+      <aside class="side">
+        <div class="card">
+          <h4 style="margin:0 0 8px 0;color:var(--accent2)">Memórias Desbloqueadas</h4>
+          <div id="memories" class="mems" aria-live="polite"></div>
+          <p class="small">Toque nas memórias para ler.</p>
+        </div>
 
+        <div class="card" style="margin-top:12px;text-align:center">
+          <strong>Tema</strong>
+          <div class="controls">
+            <button id="themeBtn" class="pill">Trocar Tema</button>
+            <button id="confettiBtn" class="pill">Confete</button>
+            <button id="resetBtn" class="pill">Resetar</button>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
 
-<div id="final-agua" class="final hidden">
-<h3>Final da Água</h3>
-<img src="22b8abed-7d88-4dba-88c0-a67e720360a0.gif" />
-<p>Ao tocar a água, reflexos criam uma nova realidade.</p>
-</div>
-</section>
+  <!-- PANEL: CHOICES -->
+  <section id="panel-choices" class="panel">
+    <div class="card">
+      <h2 style="color:var(--accent)">Escolha seu destino</h2>
+      <p>Cada botão leva a um final ilustrado.</p>
 
+      <div class="controls">
+        <button class="choiceBtn btn" data-target="final-lua">Seguir a luz da lua</button>
+        <button class="choiceBtn btn" data-target="final-floresta">Entrar na floresta colorida</button>
+        <button class="choiceBtn btn" data-target="final-agua">Tocar a superfície da água</button>
+      </div>
 
-<footer>
-<p>Portal Interativo • Criado com GIFs misteriosos ✨</p>
-</footer>
+      <div id="finalsContainer">
+        <div id="final-lua" class="final hidden">
+          <h3>Final — Lua</h3>
+          <img src="98025fe2-5897-41b3-a904-edf49d89c7c8.gif">
+          <p>Uma ponte de luz se abre e te leva para um caminho sereno.</p>
+        </div>
 
+        <div id="final-floresta" class="final hidden">
+          <h3>Final — Floresta</h3>
+          <img src="56023d4c-7e3c-4970-8850-2a378071d394.gif">
+          <p>As árvores te guiam até algo maravilhoso.</p>
+        </div>
 
-<script src="script.js"></script>
-</body>
-</html>
+        <div id="final-agua" class="final hidden">
+          <h3>Final — Água</h3>
+          <img src="22b8abed-7d88-4dba-88c0-a67e720360a0.gif">
+          <p>Ao tocar a água, reflexos revelam uma nova história.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PANEL: QUIZ -->
+  <section id="panel-quiz" class="panel">
+    <div class="card">
+      <h2 style="color:var(--accent2)">Quiz das Dimensões</h2>
+
+      <p><strong>1)</strong> Escolha um elemento:</p>
+      <div class="quiz-options"
+tml>
+
