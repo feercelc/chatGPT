@@ -1,86 +1,62 @@
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #e8fff6;
-    color: #222;
 }
 
-/* HEADER */
-header {
-    background: #7fffe1;
-    padding: 40px;
-    text-align: center;
-    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+
+.quiz-result {
+margin-top: 25px;
+padding: 20px;
+font-size: 1.2rem;
+border-radius: 12px;
+background: #fffbe7;
+box-shadow: 0 0 15px rgba(0,0,0,0.1);
 }
 
-.subtitle {
-    margin-top: 10px;
-    font-size: 1.2rem;
-    opacity: 0.8;
+
+.choice-grid {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 20px;
 }
 
-/* TEXT SECTIONS */
-.story {
-    max-width: 900px;
-    margin: 40px auto;
-    font-size: 1.3rem;
-    line-height: 1.8;
-    padding: 0 20px;
-    opacity: 0;
-    transform: translateY(40px);
-    transition: 1s ease;
+
+.choice {
+padding: 14px 20px;
+background: #6bffe5;
+border: none;
+border-radius: 10px;
+cursor: pointer;
+font-size: 1rem;
+transition: 0.3s;
 }
 
-.story.visible {
-    opacity: 1;
-    transform: translateY(0);
+
+.choice:hover {
+transform: scale(1.1);
+background: #3bf7d2;
 }
 
-/* IMAGES */
-.image-section {
-    text-align: center;
-    margin: 50px 0;
+
+.final {
+margin-top: 40px;
+padding: 30px;
+background: #ffffffb8;
+border-radius: 18px;
+box-shadow: 0 0 20px rgba(0,0,0,0.1);
+text-align: center;
 }
 
-.image-section img {
-    max-width: 90%;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    transform: scale(0.9);
-    opacity: 0;
-    transition: 1s ease;
+
+.hidden {
+display: none;
 }
 
-.image-section.visible img {
-    transform: scale(1);
-    opacity: 1;
-}
 
-/* CAPTIONS */
-.caption {
-    margin-top: 10px;
-    font-style: italic;
-    color: #444;
-}
-
-/* FOOTER */
 footer {
-    text-align: center;
-    padding: 40px;
-    background: #7fffe1;
-    margin-top: 40px;
-}
-
-#magicButton {
-    background: #22e6b5;
-    border: none;
-    padding: 14px 28px;
-    font-size: 1.1rem;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-#magicButton:hover {
-    transform: scale(1.07);
+text-align: center;
+padding: 40px;
+background: #ff9ce6;
+color: white;
+margin-top: 60px;
+border-radius: 20px 20px 0 0;
 }

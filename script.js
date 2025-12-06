@@ -1,17 +1,38 @@
-// Animação: aparece enquanto rola
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-        }
-    });
-}, { threshold: 0.3 });
+// Quiz
+const quizButtons = document.querySelectorAll(".q-btn");
+const quizResult = document.getElementById("quiz-result");
 
-document.querySelectorAll(".story, .image-section").forEach(el => {
-    observer.observe(el);
+
+quizButtons.forEach(btn => {
+btn.addEventListener("click", () => {
+const result = btn.getAttribute("data-result");
+
+
+let msg = "";
+if (result === "luz") msg = "Você desbloqueou a Dimensão Brilhante!✨";
+if (result === "sombras") msg = "Você entrou na Dimensão das Sombras… 🌑";
+if (result === "caos") msg = "Bem-vindo ao Caos Colorido! 🌈🔥";
+
+
+quizResult.textContent = msg;
+quizResult.classList.remove("hidden");
+});
 });
 
-// Botão secreto no rodapé
-document.getElementById("magicButton").addEventListener("click", () => {
-    alert("✨ Final secreto desbloqueado: você oficialmente sobreviveu à LORE DOS GIFS ✨");
+
+// Escolhas de caminhos
+const choices = document.querySelectorAll(".choice");
+const finais = document.querySelectorAll(".final");
+
+
+choices.forEach(choice => {
+choice.addEventListener("click", () => {
+const target = choice.getAttribute("data-target");
+
+
+finais.forEach(fin => fin.classList.add("hidden"));
+
+
+document.getElementById(target).classList.remove("hidden");
+});
 });
